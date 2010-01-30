@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:b='urn:import:books.client.view'>
+
+    <g:HTMLPanel>
+        <div class="mainPanel">
+            <h1>Book Stack</h1>
+            <b:InputPanelImpl ui:field="inputPanel"/>
+            <b:BookStackPanelImpl ui:field="stackPanel"/>
+        </div>
+    </g:HTMLPanel>
+
+</ui:UiBinder>

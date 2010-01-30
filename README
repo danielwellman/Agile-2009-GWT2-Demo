@@ -1,5 +1,7 @@
 Sample code from the Agile 2009 presentation "Agile Ajax: The Google Web Toolkit Experience".
 
+This code has been updated to work with GWT 2.0, including changing widgets to use the new UiBinder for layout.
+
 For more information, please see:
  Session page: http://agile2009.agilealliance.org/node/1211 
  Additional notes: http://blog.danielwellman.com/2009/08/resources-for-the-agile-ajax-the-gwt-experience-session-at-agile-2009.html

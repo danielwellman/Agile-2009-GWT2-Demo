@@ -3,27 +3,24 @@
  */
 package books.client.view;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.HasText;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.SuggestBox;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.*;
 
-public class InputPanelImpl extends HorizontalPanel implements InputPanel {
+public class InputPanelImpl extends Composite implements InputPanel {
+    interface Binder extends UiBinder<Widget, InputPanelImpl> {}
+    private static final Binder uiBinder = GWT.create(Binder.class);
 
-	private Button addButton;
-	private SuggestBox addBox;
-	
-	public InputPanelImpl() {
-		this.setStylePrimaryName("inputPanel");
-		addBox = new TitleSuggestBox();
-		this.add(addBox);
+    @UiField
+    SuggestBox addBox;
+    @UiField
+	Button addButton;
 
-		addButton = new Button("Add");
-		this.add(addButton);
-		this.setCellWidth(addButton, "50px");
-		this.setCellVerticalAlignment(addButton, ALIGN_MIDDLE);
-		this.setCellHorizontalAlignment(addButton, ALIGN_RIGHT);
+    public InputPanelImpl() {
+        initWidget(uiBinder.createAndBindUi(this));
+        this.setStylePrimaryName("inputPanel");
 	}
 	
 	public HasClickHandlers getAddButton() {

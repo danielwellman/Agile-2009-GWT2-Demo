@@ -1,0 +1,15 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:b='urn:import:books.client.view'>
+
+    <g:HorizontalPanel>
+        <g:cell>
+            <b:TitleSuggestBox ui:field='addBox'/>
+        </g:cell>
+        <g:cell width="50px" horizontalAlignment="ALIGN_RIGHT" verticalAlignment="ALIGN_MIDDLE">
+            <g:Button ui:field='addButton' text='Add'/>
+        </g:cell>
+    </g:HorizontalPanel>
+
+
+</ui:UiBinder>

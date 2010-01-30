@@ -3,35 +3,30 @@
  */
 package books.client.view;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.user.client.ui.HasText;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.*;
 
-public final class BookPanelImpl extends HorizontalPanel implements BookPanel {
-	
-	private Image upButton;
-	private Image removeButton;
-	private Label label;
+public final class BookPanelImpl extends Composite implements BookPanel {
 
-	public BookPanelImpl(String title) {
-		this.setStylePrimaryName("bookPanel");
+    interface Binder extends UiBinder<Widget, BookPanelImpl> {}
+    private static final Binder uiBinder = GWT.create(Binder.class);
+
+    @UiField
+	Image upButton;
+
+    @UiField
+	Image removeButton;
+
+    @UiField(provided = true)
+	Label label;
+
+    public BookPanelImpl(String title) {
 		label = new Label(title);
-		label.setStylePrimaryName("bookTitle");
 
-		this.add(label);
-
-		upButton = new Image("icons/arrow_up.png");
-		upButton.setStylePrimaryName("upButton");
-		this.add(upButton);
-		this.setCellWidth(upButton, "35px");
-		
-		removeButton = new Image("icons/cross.png");
-		removeButton.setStylePrimaryName("removeButton");
-		this.add(removeButton);		
-		this.setCellWidth(removeButton, "35px");
-
+        initWidget(uiBinder.createAndBindUi(this));
 	}
 
 	public HasClickHandlers getUpButton() {

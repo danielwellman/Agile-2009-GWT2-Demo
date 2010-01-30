@@ -1,37 +1,30 @@
 package books.client.view;
 
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Widget;
 
-public class View {
+public class View extends Composite {
+    interface Binder extends UiBinder<Widget, View> {}
+    private static final Binder uiBinder = GWT.create(Binder.class);
 
-	private BookStackPanelImpl stackPanel;
-	private InputPanelImpl inputPanel;
+    @UiField
+    BookStackPanelImpl stackPanel;
+    @UiField
+    InputPanelImpl inputPanel;
 
-	public View() {
+    public View() {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
 
-		final VerticalPanel mainPanel = new VerticalPanel();
-		mainPanel.setStylePrimaryName("mainPanel");
-		RootPanel.get().add(mainPanel);
+    public BookStackPanel getStackPanel() {
+        return stackPanel;
+    }
 
-		mainPanel.add(new HTML("<h1>Book Stack</h1>"));
+    public InputPanel getInputPanel() {
+        return inputPanel;
+    }
 
-		inputPanel = new InputPanelImpl();
-		mainPanel.add(inputPanel);
-
-		stackPanel = new BookStackPanelImpl();
-		stackPanel.setStylePrimaryName("stackPanel");
-
-		mainPanel.add(stackPanel);
-	}
-
-	public BookStackPanel getStackPanel() {
-		return stackPanel;
-	}
-	
-	public InputPanel getInputPanel() {
-		return inputPanel;
-	}
-	
 }

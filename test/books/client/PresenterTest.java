@@ -8,6 +8,8 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 
+import com.google.gwt.junit.GWTMockUtilities;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -40,6 +42,9 @@ public class PresenterTest {
 
 	@Before
 	public void setUp() {
+        // Prevent exception in initializer when mocking View class that call GWT.create()
+        GWTMockUtilities.disarm();
+
 		eventBus = mock(HandlerManager.class);
 		view = mock(View.class);
 		model = mock(Model.class);
@@ -59,6 +64,11 @@ public class PresenterTest {
 		
 		presenter = new Presenter(eventBus, view, model);
 	}
+    
+    @After
+    public void tearDown() {
+        GWTMockUtilities.restore();
+    }
 		
 	@Test
 	public void registersItselfAsAddButtonHandler() {

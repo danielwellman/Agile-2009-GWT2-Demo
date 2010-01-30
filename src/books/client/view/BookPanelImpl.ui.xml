@@ -1,0 +1,16 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+    xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:HorizontalPanel stylePrimaryName='bookPanel'>
+        <g:cell>
+            <g:Label ui:field='label' stylePrimaryName='bookTitle'/>
+        </g:cell>
+        <g:cell width="35px">
+            <g:Image ui:field='upButton' url='icons/arrow_up.png' stylePrimaryName='upButton'/>
+        </g:cell>
+        <g:cell width="35px">
+            <g:Image ui:field='removeButton' url='icons/cross.png' stylePrimaryName='removeButton'/>
+        </g:cell>
+    </g:HorizontalPanel>
+
+</ui:UiBinder>
